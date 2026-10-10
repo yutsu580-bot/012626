@@ -1,0 +1,305 @@
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Baby ♡</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fff8f8;
+            font-family: Georgia, serif;
+            color: #8b1e2d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Background hearts */
+
+        .heart {
+            position: fixed;
+            color: #e8a0aa;
+            opacity: 0.45;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            top: 15%;
+        }
+
+        .heart:nth-child(2) {
+            left: 80%;
+            top: 20%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(3) {
+            left: 20%;
+            top: 75%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(4) {
+            left: 75%;
+            top: 80%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Main card */
+
+        .card {
+            width: 90%;
+            max-width: 390px;
+            background: white;
+            border: 1px solid #f1c4ca;
+            border-radius: 25px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(139, 30, 45, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+
+        .small-text {
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: #b65a68;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            color: #8b1e2d;
+        }
+
+        .subtitle {
+            color: #9d5962;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Envelope */
+
+        .envelope {
+            width: 190px;
+            height: 125px;
+            background: #d9364f;
+            margin: 0 auto 30px;
+            position: relative;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(139, 30, 45, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        .envelope:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 95px solid transparent;
+            border-right: 95px solid transparent;
+            border-top: 65px solid #f25c70;
+            z-index: 2;
+        }
+
+        .envelope:after {
+            content: "♥";
+            position: absolute;
+            top: 43px;
+            left: 76px;
+            color: white;
+            font-size: 35px;
+            z-index: 3;
+        }
+
+        .open-text {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #b3263c;
+            margin-bottom: 5px;
+        }
+
+        .tap {
+            font-size: 12px;
+            color: #b87a82;
+        }
+
+        /* Hidden letter */
+
+        .letter {
+            display: none;
+            animation: appear 0.8s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .letter p {
+            color: #70444a;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            color: #8b1e2d;
+            font-style: italic;
+            font-size: 17px;
+        }
+
+        .back {
+            margin-top: 20px;
+            background: #8b1e2d;
+            color: white;
+            border: none;
+            padding: 11px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: Georgia, serif;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+
+
+    <!-- Main card -->
+
+    <div class="card" id="home">
+
+        <div class="small-text">
+            A little something for you
+        </div>
+
+        <h1>For My Baby ♡</h1>
+
+        <p class="subtitle">
+            before you go...
+        </p>
+
+
+        <!-- Envelope -->
+
+        <div class="envelope" onclick="openLetter()"></div>
+
+        <p class="open-text">
+            YOU HAVE A LETTER
+        </p>
+
+        <p class="tap">
+            tap the envelope ♡
+        </p>
+
+    </div>
+
+
+    <!-- Letter -->
+
+    <div class="card letter" id="letter">
+
+        <div class="small-text">
+            from me, with love
+        </div>
+
+        <h2>Hi, baby. ♡</h2>
+
+        <p>
+            Before you go, I wanted to leave you
+            something that you can keep with you.
+        </p>
+
+        <p>
+            So whenever you miss me, or whenever
+            the distance feels a little too much,
+            I hope you remember that there is
+            someone here who loves you so much.
+        </p>
+
+        <p>
+            This isn't goodbye.
+            It's just a little reminder of us
+            until we're together again.
+        </p>
+
+        <p class="signature">
+            I love you always, baby. ♡
+        </p>
+
+        <button class="back" onclick="closeLetter()">
+            go back ♡
+        </button>
+
+    </div>
+
+
+    <script>
+
+        function openLetter() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("letter").style.display = "block";
+        }
+
+        function closeLetter() {
+            document.getElementById("letter").style.display = "none";
+            document.getElementById("home").style.display = "block";
+        }
+
+    </script>
+
+</body>
+</html>
